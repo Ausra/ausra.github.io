@@ -3,6 +3,18 @@
         this.appModel = appModel;
         this.createInterface();
         this.showData();
+        this.iconArray = {            
+            "snow": "wi-snow", 
+            "clear-day": "wi-day-sunny",
+            "clear-night": "wi-night-clear", 
+            "rain": "wi-rain",
+            "sleet": "wi-sleet",
+            "wind": "wi-windy",
+            "fog": "wi-fog",
+            "cloudy": "wi-cloudy",
+            "partly-cloudy-day": "wi-day-cloudy",
+            "partly-cloudy-night": "wi-night-alt-cloudy"
+        };
     }
 
     AppView.prototype.addToNode = function(node) {
@@ -14,10 +26,16 @@
         var resultsData = this.appModel.getData();
         var that = this;
         resultsData.then(function(data) {
-            console.log(data);
+
             var dataNode = document.createElement('p');
             dataNode.innerHTML = data.currently.summary;
             that.resultsNode.appendChild(dataNode);
+
+            var iconNode = document.createElement('div');
+            iconNode.classList.add('icon');
+            console.log(that.iconArray[data.currently.icon]);
+            iconNode.classList.add("wi", that.iconArray[data.currently.icon]);
+            that.resultsNode.appendChild(iconNode);
         });
     }
 
