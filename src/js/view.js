@@ -37,6 +37,7 @@
             that.resultsNode.appendChild(iconNode);
 
             var temperatureNode = document.createElement('p');
+            temperatureNode.classList.add('temperature');
             temperatureNode.innerHTML = data.currently.temperature;
             that.resultsNode.appendChild(temperatureNode);
 
