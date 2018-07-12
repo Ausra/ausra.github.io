@@ -33,9 +33,13 @@
 
             var iconNode = document.createElement('div');
             iconNode.classList.add('icon');
-            console.log(that.iconArray[data.currently.icon]);
             iconNode.classList.add("wi", that.iconArray[data.currently.icon]);
             that.resultsNode.appendChild(iconNode);
+
+            var temperatureNode = document.createElement('p');
+            temperatureNode.innerHTML = data.currently.temperature;
+            that.resultsNode.appendChild(temperatureNode);
+
         });
     }
 
