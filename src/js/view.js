@@ -1,6 +1,6 @@
-(function() {
-    var AppView = window.CLASSES.AppView = function(appModel) {
-        this.appModel = appModel;
+(function (window) {
+    var View = function() {
+        this.model = Model;
         this.createInterface();
         this.showData();
         this.iconArray = {            
@@ -17,13 +17,13 @@
         };
     }
 
-    AppView.prototype.addToNode = function(node) {
+    View.prototype.addToNode = function(node) {
         node.appendChild(this.mainNode);
     }
 
-    AppView.prototype.showData = function(data) {
+    View.prototype.showData = function(data) {
         this.resultsNode.innerHTML = '';
-        var resultsData = this.appModel.getData();
+        var resultsData = this.model.getData();
         var that = this;
         resultsData.then(function(data) {
 
@@ -44,12 +44,17 @@
         });
     }
 
-    AppView.prototype.createInterface = function() {
+    View.prototype.createInterface = function() {
         this.mainNode = document.createElement('div');
         this.mainNode.classList.add('main');
 
         this.resultsNode = document.createElement('div');
         this.resultsNode.classList.add('results');
         this.mainNode.appendChild(this.resultsNode);
-    }
-}());
+    };
+
+    window.app = window.app || {};
+    console.log(window.app);
+    window.app.View = View;
+
+}(window));

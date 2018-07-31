@@ -5,32 +5,20 @@
 		<link rel="stylesheet" type="text/css" href="src/css/styles.css">
 		<link rel="stylesheet" type="text/css" href="src/css/weather-icons.css">
 	</head>
-	<script>
-		var CLASSES = {};
-	</script>
 
-	<script src="src/js/app.js"></script>
+
+
+
+
+	<body>
+
+		<div id="display"></div>
+
+
 	<script src="src/js/model.js"></script>
 	<script src="src/js/view.js"></script>
 	<script src="src/js/controller.js"></script>
-
-	<script>
-		var AppClass = CLASSES['App'];
-		var ModelClass = CLASSES['AppModel'];
-		var ViewClass = CLASSES['AppView'];
-		var ControllerClass = CLASSES['Controller'];
-
-		var modelClass = new ModelClass();
-
-		window.onload = function() {
-			var view = new ViewClass(modelClass);
-			view.addToNode(document.getElementById('app'));
-		};
-
-	</script>
-
-	<body>
-		<div id="app"></div>
+		<script src="src/js/app.js"></script>
 	</body>
 </html>
 
